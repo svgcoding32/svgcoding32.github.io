@@ -19,8 +19,9 @@ $(function () {
     createPlatform(-50, -50, canvas.width + 100, 50); //top
     createPlatform(-50, canvas.height - 10, canvas.width + 100, 200); //right
     createPlatform(-50, -50, 50, canvas.height + 500); //bottom
-    createPlatform(canvas.width, -50, 50, canvas.height + 100);
-
+    createPlatform(canvas.width, -500, 50, canvas.height + 100);
+    createPlatform(canvas.width, -500, 50, canvas.height + 100);
+    createPlatform(canvas.width, -500 , 50, canvas.height + 100);
     /**
      * Uncomment the loops below to add a "grid" to your platformer game's screen
      * The grid will place both horizontal and vertical platforms incremented 100 pixels apart
@@ -33,7 +34,7 @@ $(function () {
     // }
     // for (let i = 100; i < canvas.height; i += 100) {
     //   createPlatform(canvas.width, i, -canvas.width, -1);
-    // }
+    // } 
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE BELOW THIS POINT///////////
@@ -43,8 +44,10 @@ $(function () {
     // Create platforms
     // You must decide the x position, y position, width, and height of the platforms
     // example usage: createPlatform(x,y,width,height)
-
-
+    createPlatform (0,700,700,100,100)
+    createPlatform (700,400,80,100)
+    createPlatform (1000,324,304,234 )
+    createPlatform (2032,329,543,323)
 
     
     // TODO 2
@@ -53,8 +56,9 @@ $(function () {
     // Your collectable choices are 'database' 'diamond' 'grace' 'kennedi' 'max' and 'steve'; more can be added if you wish
     // example usage: createCollectable(type, x, y, gravity, bounce)
 
-
-
+    createCollectable("steve", 500, 300, 20, 0.5)
+    createCollectable("grace", 500, 300)
+    createCollectable("kennedi", )
 
     // TODO 3
     // Create cannons
@@ -62,8 +66,12 @@ $(function () {
     // Your wall choices are: 'top' 'left' 'right' and 'bottom'
     // example usage: createCannon(side, position, delay, width, height)
 
-
-
+createCannon("top", 20, 40)
+createCannon("bottom", 20, 50)
+createCannon("left", 100, 100)
+createCannon("left", 900, 100)
+createCannon("right", 440, 110)
+createCannon("right", 240, 110)
 
     /////////////////////////////////////////////////
     //////////ONLY CHANGE ABOVE THIS POINT///////////
