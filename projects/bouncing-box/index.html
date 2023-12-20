@@ -5,20 +5,22 @@
 	<title>Bouncing Box</title>
 	<script src="jquery.min.js"></script>
 	<style>
-		.box {
-			width: 70px;
+		[class="box"] {
+			width: 30ch;
 			height: 70px;
-			background-color: teal;
-			font-size: 300%;
+			background-color:rgb(9, 19, 19);
+			
+			font-size: 10%;
 			text-align: center;
 			user-select: none;
 			display: block;
 			position: absolute;
 			top: 100px;
-			left: 0px;  /* <--- Change me! */
+			left: 0%;  /* <--- Change me! */
 		}
 		.board{
-			height: 100vh;
+			height: 80vh;
+			background-image: url("https://wallpaper.dog/large/20580704.jpg")
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -42,8 +44,10 @@
 			var boardWidth = board.width();	// the maximum X-Coordinate of the screen
 
 			// Every 50 milliseconds, call the update Function (see below)
-			setInterval(update, 50);
-			
+			var interval = setInterval(update, 50);
+			function endGame() {
+    clearInterval(interval);
+}
 			// Every time the box is clicked, call the handleBoxClick Function (see below)
 			box.on('click', handleBoxClick);
 
@@ -62,34 +66,44 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			var positionX = 0;
-
-			
+			var positionX = 1;
+              var speed = 10
+			 var points = 1
 			/* 
 			This Function will be called 20 times/second. Each time it is called,
 			it should move the Box to a new location. If the box drifts off the screen
 			turn it around! 
 			*/
 			function update() {
-				positionX = positionX + 10;
+				/* nameOfFunction(arguments) */
+				positionX = positionX + speed ;
 				moveBoxTo(positionX);
-
-			};
-
+               if (positionX > boardWidth) {
+				speed = -speed;
+			}
+			if (positionX < 0) {
+				speed = -speed;
+			}
+			}
 			/* 
 			This Function will be called each time the box is clicked. Each time it is called,
 			it should increase the points total, increase the speed, and move the box to
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				console.log(positionX)
-				positionX = 0;
+				positionX = 1;
+                points = points + 1 
+				speed += 3
+		     // +=
+			
+				changeBoxText(points);
 				// Reassigning the positionX variable to 0 so that the box will move back to the left side of the screen
-
+				if (+speed) {
+				speed = speed +3;
+			}
+			else if (-speed)
+			   speed = speed -3;
 			};
-
-
-
 
 
 		})();
